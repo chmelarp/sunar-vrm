@@ -1,0 +1,22 @@
+
+SUNAR: Surveillance Network Augmented by Retrieval
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  Petr Chmelar (c) 2010
+  Brno Univeristy of Technology
+  Faculty of Information Technology
+
+
+Abstract
+
+  In brief, SUNAR is composed of three basic modules – video processing, retrieval 
+and the monitoring interface. Computer Vision Modules are based on the OpenCV Library 
+for object tracking extended by feature extraction and network communication 
+capability similar to MPEG-7. Information about objects and the area under surveillance 
+is cleaned, integrated, indexed and stored in Video Retrieval Modules. They are based 
+on the PostgreSQL database extended to be capable of similarity and spatio-temporal 
+information retrieval, which is necessary both for overlapping and non-overlapping surveillance camera 
+system as well as information analysis and mining in a global context [1].
+
+[1] Petr Chmelar, Ales Lanik and Jozef Mlich. SUNAR: Surveillance Network Augmented by Retrieval. 
+    Paper 247 has been accepted for presentation at ACIVS 2010.
+

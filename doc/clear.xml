@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<viper xmlns="http://lamp.cfar.umd.edu/viper#" xmlns:data="http://lamp.cfar.umd.edu/viperdata#">
+  <config>
+    <descriptor name="Information" type="FILE">
+      <attribute dynamic="false" name="SOURCETYPE" type="http://lamp.cfar.umd.edu/viperdata#lvalue">
+        <data:lvalue-possibles>
+          <data:lvalue-enum value="SEQUENCE"/>
+          <data:lvalue-enum value="FRAMES"/>
+        </data:lvalue-possibles>
+      </attribute>
+      <attribute dynamic="false" name="NUMFRAMES" type="http://lamp.cfar.umd.edu/viperdata#dvalue"/>
+      <attribute dynamic="false" name="FRAMERATE" type="http://lamp.cfar.umd.edu/viperdata#fvalue"/>
+      <attribute dynamic="false" name="H-FRAME-SIZE" type="http://lamp.cfar.umd.edu/viperdata#dvalue"/>
+      <attribute dynamic="false" name="V-FRAME-SIZE" type="http://lamp.cfar.umd.edu/viperdata#dvalue"/>
+    </descriptor>
+    <descriptor name="PERSON" type="OBJECT">
+      <attribute dynamic="true" name="LOCATION" type="http://lamp.cfar.umd.edu/viperdata#bbox"/>
+      <attribute dynamic="true" name="AMBIGUOUS" type="http://lamp.cfar.umd.edu/viperdata#bvalue"/>
+      <attribute dynamic="true" name="OCCLUSION" type="http://lamp.cfar.umd.edu/viperdata#bvalue"/>
+      <attribute dynamic="true" name="PRESENT" type="http://lamp.cfar.umd.edu/viperdata#bvalue"/>
+      <attribute dynamic="true" name="SYNTHETIC" type="http://lamp.cfar.umd.edu/viperdata#bvalue"/>
+    </descriptor>
+    <descriptor name="FRAME" type="OBJECT">
+      <attribute dynamic="true" name="EVALUATE" type="http://lamp.cfar.umd.edu/viperdata#bvalue"/>
+    </descriptor>
+    <descriptor name="I-FRAMES" type="OBJECT"/>
+  </config>
+  <data>
+    <sourcefile filename="/* filename    filename    filename    filename    filename    filename */">
+      <file id="0" name="Information">
+        <attribute name="FRAMERATE">
+          <data:fvalue value="1.0"/>
+        </attribute>
+        <attribute name="H-FRAME-SIZE"/>
+        <attribute name="NUMFRAMES">
+
+        </attribute>
+        <attribute name="SOURCETYPE"/>
+        <attribute name="V-FRAME-SIZE"/>
+      </file>
+
+
+
+
+
+    </sourcefile>
+  </data>
+</viper>
+

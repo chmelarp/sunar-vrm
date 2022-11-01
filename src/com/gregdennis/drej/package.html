@@ -1,0 +1,88 @@
+<body bgcolor=white text=black>
+
+<table border=0 align=center width="90%" cellspacing=0 cellpadding=20><tr><td>
+
+<b><a href="../">Greg Dennis</a> - Drej</b>
+
+<hr>
+
+<h2>Drej - A Java Regression Library</h2>
+
+<p>
+<b>About</b><br>
+Drej (pronounced "dredge") is a simple, open-source, Java library for linear and non-linear
+least-squares regression and regularized least-squares classification. Clients can easily
+plug-in arbitrary kernels and data sets, and Drej will fit the optimal curve.
+</p>
+
+<p>
+<b>Download</b><br>
+Current Version: 1.2 (11/12/2005)<br>
+Drej requires the <tt>javax.vecmath</tt> package in the
+  <a href="https://java3d.dev.java.net/binary-builds.html">Java3D library</a>.<br>
+
+ Drej is licensed under the <a href="gpl.txt">GNU General Public License</a>.<br>
+Source and binaries available <a href="drej.jar">here</a>.<br>
+View Javadoc API Specification <a href="api/">here</a> or
+  download it <a href="drejapi.zip">here</a>.
+  </p>
+
+<p>
+<b>Example</b><br>
+Let's say you have n data points, each of which have m features.
+Your code will probably look something like this:
+
+<pre>
+ GMatrix data = new GMatrix(m, n);
+ GVector values = new GVector(n);
+
+ // here you would put all your data points into the data matrix
+ // each data point goes into a column of the matrix
+ // put the actual values for those data points in the values vector
+ // the data point in the ith column of the data matrix should have
+ // the value in the ith entry in the values vector.
+ // I believe some kernels only work when your range of possible values has
+ // zero as a midpoint. for instance, if you're classifying data points into "yes"
+ // and "no", best to choose their values as 1 and -1, as opposed to 1 and 0.
+
+ // construct the kernel you want to use:
+ Kernel kernel = . . .;
+
+ // choose a penalty factor on the complexity of the solution
+ // this helps to prevent overfitting the data
+ // I was told me this number should be between
+ // 10^-3 and 1, I often choose 0.5, but you can play with it
+ double lambda = 0.5;
+
+ // do the regression, which returns a function fit to the data
+ Representer representer = Regression.solve(data, values, kernel, lambda);
+</pre>
+
+That's basically it. What happens next depends on what you want to use
+it for.  If you'd like to use the regression to predict the value of a
+data point y, just feed y into the representer function:
+
+<pre>
+ double predictedValue = representer.eval(y);
+</pre>
+
+If you'd like to calculate how well the function fits the data, you
+can first calculate the vector of values the representer would predict
+for your data points, subtract from that the vector of actual values,
+and take the norm squared of that difference. Let's call this the
+"cost". The lower the cost, the better the function fits the data. You
+can try out different kernels, and see which one yields the best-fit
+curve (the lowest cost):
+
+<pre>
+
+ GVector predictedValues = Matrices.mapCols(representer, data);
+ predictedValues.sub(values);
+ double cost = predictedValues.normSquared();
+</pre>
+
+<br><hr>
+
+</td></tr></table>
+
+</body>
